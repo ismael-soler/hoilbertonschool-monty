@@ -41,5 +41,9 @@ typedef struct instruction_s
 } instruction_t;
 
 int check_argument(char *);
+int open_file(char *);
+void exec_file(FILE *);
+int (*get_func(char *))(char *);
+
 
 #endif

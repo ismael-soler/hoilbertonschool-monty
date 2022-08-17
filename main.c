@@ -35,7 +35,7 @@ int check_argument(char *file_name)
 
 	if (stat(file_name, &st) == 0)
 	{
-		printf("existe\n");
+		open_file(file_name);
 	}
 	else
 	{
