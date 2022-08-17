@@ -18,7 +18,7 @@ int open_file(char *file_name)
 		error_code = 1;
 		return (error_code);
 	}
-	error_code = exec_file(file)
+	error_code = exec_file(file);
 	fclose(file);
 	return (error_code);
 }

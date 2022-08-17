@@ -34,7 +34,7 @@ int main(int ac, char *av[])
 
 int check_argument(char *file_name)
 {
-	int error_code = 0
+	int error_code = 0;
 	struct stat st;
 
 	if (stat(file_name, &st) == 0)

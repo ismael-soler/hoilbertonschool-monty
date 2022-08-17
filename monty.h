@@ -42,7 +42,7 @@ typedef struct instruction_s
 
 int check_argument(char *);
 int open_file(char *);
-void exec_file(FILE *);
+int exec_file(FILE *);
 void (*get_func(char *))(stack_t **, unsigned int);
 char **buff_to_array(char *, char *);
 int free_array(char **array);

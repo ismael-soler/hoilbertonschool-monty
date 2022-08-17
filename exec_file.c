@@ -5,13 +5,15 @@
  * @file: file directory
  */
 
-void exec_file(FILE *file)
+int exec_file(FILE *file)
 {
 	int counter = 1;
 	char *line = NULL, *line_aux = NULL, **array = NULL;
 	/*void (*command_function)(stack_t **, unsigned int);*/
 
 	line = malloc(1024);
+	if (line == NULL)
+		return (2);
 	line_aux = line;
 	line = fgets(line, 1024, file);
 	for (; line;)
@@ -21,14 +23,17 @@ void exec_file(FILE *file)
 		{
 			fprintf(stderr, "L%i: unknown instruction %s\n", counter, array[0]);
 			free_array(array);
-			exit(EXIT_FAILURE);
+			return (1);
 		}
 		free_array(array);
 		counter++;
 		line = malloc(1024);
+		if (line == NULL)
+			return (2);
 		line_aux = line;
 		line = fgets(line, 1024, file);
 	}
 	free(line_aux);
 	printf("cantidad de lineas: %i\n", counter);
+	return (0);
 }
