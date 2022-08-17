@@ -46,6 +46,7 @@ void exec_file(FILE *);
 void (*get_func(char *))(stack_t **, unsigned int);
 char **buff_to_array(char *, char *);
 int free_array(char **array);
+void handle_error(int);
 
 void _push(stack_t **stack, unsigned int line_number);
 void _pall(stack_t **stack, unsigned int line_number);
