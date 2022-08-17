@@ -43,8 +43,10 @@ typedef struct instruction_s
 int check_argument(char *);
 int open_file(char *);
 void exec_file(FILE *);
-int (*get_func(char *))(char *);
+void (*get_func(char *))(stack_t **, unsigned int);
 char **buff_to_array(char *, char *);
 int free_array(char **array);
 
+void _push(stack_t **stack, unsigned int line_number);
+void _pall(stack_t **stack, unsigned int line_number);
 #endif
