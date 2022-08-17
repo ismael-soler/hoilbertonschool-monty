@@ -9,8 +9,8 @@
 void (*get_func(char *command))(stack_t **stack, unsigned int line_number)
 {
 	instruction_t array[] = {
-		{"puh", _push},
-		{"pal", _pall},
+		{"push", _push},
+		{"pall", _pall},
 	};
 	int i;
 

@@ -3,6 +3,7 @@
 /**
  * exec_file - searches line by line of the given file and tries to execute.
  * @file: file directory
+ * Return: 0 on success
  */
 
 int exec_file(FILE *file)
@@ -25,6 +26,7 @@ int exec_file(FILE *file)
 			free_array(array);
 			return (1);
 		}
+		get_func(array[0])(&stack, counter);
 		free_array(array);
 		counter++;
 		line = malloc(1024);
