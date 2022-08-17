@@ -44,6 +44,7 @@ int check_argument(char *);
 int open_file(char *);
 void exec_file(FILE *);
 int (*get_func(char *))(char *);
-
+char **buff_to_array(char *, char *);
+int free_array(char **array);
 
 #endif
