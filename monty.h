@@ -10,6 +10,8 @@
 #include <sys/stat.h>
 #include <errno.h>
 
+extern int push_arg;
+
 /**
  * struct stack_s - doubly linked list representation of a stack or queue)
  * @n: integer
@@ -25,8 +27,6 @@ typedef struct stack_s
         struct stack_s *prev;
         struct stack_s *next;
 } stack_t;
-
-stack_t stack;
 
 /**
  * struct instruction_s - opcode and its function
@@ -49,6 +49,8 @@ void (*get_func(char *))(stack_t **, unsigned int);
 char **buff_to_array(char *, char *);
 int free_array(char **array);
 void handle_error(int);
+int string_to_int(char *);
+
 
 void _push(stack_t **stack, unsigned int line_number);
 void _pall(stack_t **stack, unsigned int line_number);
