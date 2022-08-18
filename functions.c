@@ -21,6 +21,7 @@ void _push(stack_t **stack, unsigned int line_number)
 		free_stack(*stack);
 		return;
 	}
+	if (push_arg)
 	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
 	{
@@ -28,6 +29,7 @@ void _push(stack_t **stack, unsigned int line_number)
 		return;
 	}
 
+	if (push_arg)
 	new_node->prev = NULL;
 	new_node->n = push_arg_value;
 	if (*stack)
