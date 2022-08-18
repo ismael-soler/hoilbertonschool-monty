@@ -10,7 +10,7 @@
 #include <sys/stat.h>
 #include <errno.h>
 
-extern int push_arg;
+extern char *push_arg;
 
 /**
  * struct stack_s - doubly linked list representation of a stack or queue)
@@ -49,6 +49,7 @@ void (*get_func(char *))(stack_t **, unsigned int);
 char **buff_to_array(char *, char *);
 int free_array(char **array);
 void handle_error(int);
+void free_stack(stack_t *stack);
 int string_to_int(char *);
 
 

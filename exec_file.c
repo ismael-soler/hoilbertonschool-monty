@@ -1,5 +1,7 @@
 #include "monty.h"
 
+char *push_arg = NULL;
+
 /**
  * exec_file - searches line by line of the given file and tries to execute
  * @file: file directory
@@ -26,11 +28,10 @@ int exec_file(FILE *file)
 			free_array(array);
 			return (1);
 		}
-		if (array[1])
-		{
-			string_to_int(array[1]);
-		}
+		push_arg = array[1];
 		get_func(array[0])(&stack, counter);
+		if (stack == NULL)
+			return (2);
 		free_array(array);
 		counter++;
 		line = malloc(1024);
@@ -40,6 +41,6 @@ int exec_file(FILE *file)
 		line = fgets(line, 1024, file);
 	}
 	free(line_aux);
-	printf("cantidad de lineas: %i\n", counter);
+	free_stack(stack);
 	return (0);
 }
