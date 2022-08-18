@@ -15,6 +15,12 @@ void _push(stack_t **stack, unsigned int line_number)
 
 	if (push_arg)
 		push_arg_value = string_to_int(push_arg);
+	if (push_arg == NULL)
+	{
+		printf("L%u: usage: push integer\n", line_number);
+		free_stack(*stack);
+		return;
+	}
 	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
 	{

@@ -11,7 +11,7 @@ int string_to_int(char *string)
 {
 	int i, flag, flag2 = 0;
 	char number;
-	int push_arg_value;
+	int push_arg_value = 0;
 
 
 	for (i = 0; string[i]; i++)
@@ -26,11 +26,13 @@ int string_to_int(char *string)
 			if (number == string[i])
 			{
 				flag = 1;
-				;
 			}
 		}
 		if (flag == 0)
-			return (1);
+		{
+			push_arg = NULL;
+			return (push_arg_value);
+		}
 	}
 	if (flag2 == 1)
 		string++;

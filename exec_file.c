@@ -17,23 +17,25 @@ int exec_file(FILE *file)
 	line = malloc(1024);
 	if (line == NULL)
 		return (2);
-	line_aux = line;
-	line = fgets(line, 1024, file);
-	for (; line;)
+	for (line_aux = line, line = fgets(line, 1024, file); line; counter++)
 	{
 		array = buff_to_array(line, " \t\n");
-		if (get_func(array[0]) == NULL)
+		if (array[0])
 		{
-			fprintf(stderr, "L%i: unknown instruction %s\n", counter, array[0]);
+			if (get_func(array[0]) == NULL)
+			{
+				fprintf(stderr, "L%i: unknown instruction %s\n", counter, array[0]);
+				free_array(array);
+				return (1);
+			}
+			push_arg = array[1];
+			get_func(array[0])(&stack, counter);
 			free_array(array);
-			return (1);
+			if (push_arg == NULL)
+				return (1);
+			if (stack == NULL)
+				return (2);
 		}
-		push_arg = array[1];
-		get_func(array[0])(&stack, counter);
-		if (stack == NULL)
-			return (2);
-		free_array(array);
-		counter++;
 		line = malloc(1024);
 		if (line == NULL)
 			return (2);
