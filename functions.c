@@ -17,7 +17,7 @@ void _push(stack_t **stack, unsigned int line_number)
 		push_arg_value = string_to_int(push_arg);
 	if (push_arg == NULL)
 	{
-		printf("L%u: usage: push integer\n", line_number);
+		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		free_stack(*stack);
 		return;
 	}

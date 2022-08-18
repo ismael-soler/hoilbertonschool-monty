@@ -17,6 +17,7 @@ int exec_file(FILE *file)
 	line = malloc(1024);
 	if (line == NULL)
 		return (2);
+	line = fgets(line, 1024, file);
 	for (line_aux = line, line = fgets(line, 1024, file); line; counter++)
 	{
 		array = buff_to_array(line, " \t\n");
