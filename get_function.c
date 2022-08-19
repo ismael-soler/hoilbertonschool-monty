@@ -11,11 +11,12 @@ void (*get_func(char *command))(stack_t **stack, unsigned int line_number)
 	instruction_t array[] = {
 		{"push", _push},
 		{"pall", _pall},
-		{"pint", _pint}
+		{"pint", _pint},
+		{"pop", _pop}
 	};
 	int i;
 
-	for (i = 0; i < 3; i++)
+	for (i = 0; i < 4; i++)
 		if (strcmp(array[i].opcode, command) == 0)
 			return (array[i].f);
 	return (NULL);

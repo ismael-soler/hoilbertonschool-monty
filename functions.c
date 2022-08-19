@@ -20,7 +20,7 @@ void _push(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		return;
 	}
-	if (push_arg[1])
+	/*if (push_arg[1])*/
 	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
 	{
@@ -28,7 +28,7 @@ void _push(stack_t **stack, unsigned int line_number)
 		return;
 	}
 
-	if (push_arg[1])
+	/*if (push_arg[1])*/
 	new_node->prev = NULL;
 	new_node->n = push_arg_value;
 	if (*stack)
@@ -89,4 +89,5 @@ void _pint(stack_t **stack, unsigned int line_number)
 		push_arg[1] = NULL;
 		return;
 	}
+	printf("%i\n", stack_aux->n);
 }

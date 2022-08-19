@@ -12,7 +12,6 @@ int exec_file(FILE *file)
 {
 	unsigned int counter = 1;
 	char *line = NULL, *line_aux = NULL, **array = NULL;
-	char *aux;
 	stack_t *stack = NULL;
 
 	line = malloc(1024);
@@ -31,8 +30,7 @@ int exec_file(FILE *file)
 			}
 			push_arg = array;
 			get_func(array[0])(&stack, counter);
-			aux = push_arg[1];
-			if (aux == NULL)
+			if (push_arg[1] == NULL)
 				handle_error(1, file, stack);
 			if (stack == NULL)
 				handle_error(2, file, stack);
