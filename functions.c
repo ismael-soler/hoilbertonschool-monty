@@ -9,11 +9,12 @@
 
 void _push(stack_t **stack, unsigned int line_number)
 {
-	(void)line_number;
 	stack_t *new_node = NULL;
 	int push_arg_value = 0;
 
 	global_data->flag = 0;
+	if (global_data->array[1] == NULL)
+		global_data->flag = 1;
 	if (global_data->array[1])
 		push_arg_value = string_to_int(global_data->array[1]);
 	if (global_data->flag == 1)
@@ -24,8 +25,7 @@ void _push(stack_t **stack, unsigned int line_number)
 	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
 	{
-		free_stack(*stack);
-		return;
+		handle_error(2, global_data->file, *stack);
 	}
 
 	new_node->prev = NULL;
@@ -84,8 +84,7 @@ void _pint(stack_t **stack, unsigned int line_number)
 	if (stack_aux == NULL)
 	{
 		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
-		global_data->array[1] = NULL;
-		return;
+		handle_error(1, global_data->file, *stack);
 	}
 	printf("%i\n", stack_aux->n);
 }

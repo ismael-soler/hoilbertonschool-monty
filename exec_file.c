@@ -29,10 +29,6 @@ int exec_file(FILE *file)
 				return (1);
 			}
 			get_func(global_data->array[0])(&stack, c);
-			if (global_data->array[1] == NULL)
-				handle_error(1, file, stack);
-			if (stack == NULL)
-				handle_error(2, file, stack);
 			free_array(global_data->array);
 		}
 		c++;
