@@ -58,3 +58,14 @@ void _pall(stack_t **stack, unsigned int line_number)
 	for (; stack_aux; stack_aux = stack_aux->next)
 		printf("%d\n", stack_aux->n);
 }
+
+/**
+ * _nop - does nothing
+ * @stack: stack
+ * @line_number: line_number of the file that's running
+ */
+void _nop(stack_t **stack, unsigned int line_number)
+{
+	(void)stack;
+	(void)line_number;
+}
