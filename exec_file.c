@@ -39,6 +39,7 @@ int exec_file(FILE *file)
 		line = fgets(line, 1024, file);
 	}
 	free(line_aux);
+	free(global_data);
 	free_stack(stack);
 	return (0);
 }
