@@ -13,9 +13,9 @@ void _push(stack_t **stack, unsigned int line_number)
 	stack_t *new_node = NULL;
 	int push_arg_value = 0;
 
-	if (push_arg[1])
-		push_arg_value = string_to_int(push_arg[1]);
-	if (push_arg[1] == NULL) /*if sth != number, string_to_int NULLs it*/
+	if (global_data->array[1])
+		push_arg_value = string_to_int(global_data->array[1]);
+	if (global_data->array[1] == NULL) /*if sth != number, string_to_int NULLs it*/
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		return;
@@ -59,7 +59,6 @@ void _pall(stack_t **stack, unsigned int line_number)
 }
 
 
-
 /**
  * _nop - does nothing
  * @stack: stack
@@ -86,7 +85,7 @@ void _pint(stack_t **stack, unsigned int line_number)
 	if (stack_aux == NULL)
 	{
 		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
-		push_arg[1] = NULL;
+		global_data->array[1] = NULL;
 		return;
 	}
 	printf("%i\n", stack_aux->n);

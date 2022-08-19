@@ -10,8 +10,21 @@
 #include <sys/stat.h>
 #include <errno.h>
 
-extern char **push_arg;
 
+/**
+ * struct data_s - stuff I need idk
+ * @flag: flag to determine if the program worked properly
+ * @file: FILE
+ * @array: array that containts the tokenized line
+ */
+typedef struct data_s
+{
+	int flag;
+	FILE *file;
+	char **array;
+} data_t;
+
+data_t *global_data;
 /**
  * struct stack_s - doubly linked list representation of a stack or queue)
  * @n: integer
