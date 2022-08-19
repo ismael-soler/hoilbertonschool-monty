@@ -13,11 +13,6 @@ int string_to_int(char *string)
 	char number;
 	int push_arg_value = 0;
 
-	if (string == NULL)
-	{
-		global_data->flag = 1;
-		return (0);
-	}
 	for (i = 0; string[i]; i++)
 	{
 		if (string[i] == '-')

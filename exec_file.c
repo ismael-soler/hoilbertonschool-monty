@@ -25,8 +25,7 @@ int exec_file(FILE *file)
 			if (get_func(global_data->array[0]) == NULL)
 			{
 				fprintf(stderr, "L%u: unknown instruction %s\n", c, global_data->array[0]);
-				free_array(global_data->array);
-				return (1);
+				handle_error(1, file, stack);
 			}
 			get_func(global_data->array[0])(&stack, c);
 			free_array(global_data->array);
