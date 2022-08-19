@@ -30,7 +30,7 @@ int string_to_int(char *string)
 		}
 		if (flag == 0)
 		{
-			push_arg = NULL;
+			push_arg[1] = NULL;
 			return (push_arg_value);
 		}
 	}

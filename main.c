@@ -10,19 +10,16 @@
 int main(int ac, char *av[])
 {
 	(void) av;
-	int error_code = 0;
 
 	if (ac == 2)
 	{
-		error_code = check_argument(av[1]); /* funcion mandamos puntero a string*/
+		check_argument(av[1]); /* funcion mandamos puntero a string*/
 	}
 	else
 	{
 		write(2, "USAGE: monty file\n", 18);
 		exit(EXIT_FAILURE);
 	}
-	if (error_code != 0)
-		handle_error(error_code);
 	return (0);
 }
 

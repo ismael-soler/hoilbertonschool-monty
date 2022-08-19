@@ -1,6 +1,6 @@
 #include "monty.h"
 
-char *push_arg = NULL;
+char **push_arg = NULL;
 
 /**
  * exec_file - searches line by line of the given file and tries to execute
@@ -10,8 +10,9 @@ char *push_arg = NULL;
 
 int exec_file(FILE *file)
 {
-	int counter = 1;
+	unsigned int counter = 1;
 	char *line = NULL, *line_aux = NULL, **array = NULL;
+	char *aux;
 	stack_t *stack = NULL;
 
 	line = malloc(1024);
@@ -24,22 +25,23 @@ int exec_file(FILE *file)
 		{
 			if (get_func(array[0]) == NULL)
 			{
-				fprintf(stderr, "L%i: unknown instruction %s\n", counter, array[0]);
+				fprintf(stderr, "L%u: unknown instruction %s\n", counter, array[0]);
 				free_array(array);
 				return (1);
 			}
-			push_arg = array[1];
+			push_arg = array;
 			get_func(array[0])(&stack, counter);
-			free_array(array);
-			if (push_arg == NULL)
-				return (1);
+			aux = push_arg[1];
+			if (aux == NULL)
+				handle_error(1, file, stack);
 			if (stack == NULL)
-				return (2);
+				handle_error(1, file, stack);
+			free_array(array);
 		}
 		counter++;
 		line = malloc(1024);
 		if (line == NULL)
-			return (2);
+			handle_error(2, file, stack);
 		line_aux = line;
 		line = fgets(line, 1024, file);
 	}
