@@ -1,10 +1,10 @@
-#MontyByteCode Interpreter
+# MontyByteCode Interpreter
 
-##Description
+## Description
 
 This program is an interpreter for Monty ByteCode files, it will open the file and execute the instructions given inside. The program must be given only one argument, it being the name of the Monty file to be opened.
 
-##Learning Objectives
+## Learning Objectives
 
 - What do LIFO and FIFO mean
 - What is a stack and a queue, and when to use them
@@ -12,7 +12,7 @@ This program is an interpreter for Monty ByteCode files, it will open the file a
 - What are the most common use cases of stacks and queues
 - What is the proper way to use global variables
 
-##Instuctions it can handle:
+## Instuctions it can handle:
 
 - push: Pushes an element to the stack. The element must be an integer, otherwise it will exit with the status EXIT_FAILURE.
 - pall: Prints all values of the stackstarting from the top. If the stack is empty it won't print anything.
@@ -23,7 +23,7 @@ This program is an interpreter for Monty ByteCode files, it will open the file a
 - add: Adds up the top two elements of the stack, stores the result in the second top element, and deletes the top element of the stack. If stack has less than two elements, it will exit with the status EXIT_FAILURE.
 - nop: Doesn't  do anything.
 
-##Authors
+## Authors
 
 - Ismael Soler
 - Sebastian Lopez
