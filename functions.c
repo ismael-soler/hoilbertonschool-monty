@@ -15,7 +15,7 @@ void _push(stack_t **stack, unsigned int line_number)
 
 	if (push_arg[1])
 		push_arg_value = string_to_int(push_arg[1]);
-	if (push_arg[1] == NULL) /* if sth other than an number, string_to_int NULLs it*/
+	if (push_arg[1] == NULL) /*if sth other than an number, string_to_int NULLs it*/
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		return;
@@ -57,6 +57,8 @@ void _pall(stack_t **stack, unsigned int line_number)
 	for (; stack_aux; stack_aux = stack_aux->next)
 		printf("%d\n", stack_aux->n);
 }
+
+
 
 /**
  * _nop - does nothing

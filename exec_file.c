@@ -35,7 +35,7 @@ int exec_file(FILE *file)
 			if (aux == NULL)
 				handle_error(1, file, stack);
 			if (stack == NULL)
-				handle_error(1, file, stack);
+				handle_error(2, file, stack);
 			free_array(array);
 		}
 		counter++;
