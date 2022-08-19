@@ -2,7 +2,7 @@
 
 
 /**
- * open_file - opens file.
+ * open_file - opens file
  * @file_name: file name
  * Return: 0 on success
  */

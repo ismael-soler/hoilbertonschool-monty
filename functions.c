@@ -15,7 +15,7 @@ void _push(stack_t **stack, unsigned int line_number)
 
 	if (push_arg[1])
 		push_arg_value = string_to_int(push_arg[1]);
-	if (push_arg[1] == NULL) /*if sth other than an number, string_to_int NULLs it*/
+	if (push_arg[1] == NULL) /*if sth != number, string_to_int NULLs it*/
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		return;
@@ -69,4 +69,24 @@ void _nop(stack_t **stack, unsigned int line_number)
 {
 	(void)stack;
 	(void)line_number;
+}
+
+
+/**
+ * _pint - prints the value at the top of the stack
+ * @stack: stack
+ * @line_number: line number of the running string
+ */
+
+void _pint(stack_t **stack, unsigned int line_number)
+{
+	(void)line_number;
+	stack_t *stack_aux = *stack;
+
+	if (stack_aux == NULL)
+	{
+		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
+		push_arg[1] = NULL;
+		return;
+	}
 }

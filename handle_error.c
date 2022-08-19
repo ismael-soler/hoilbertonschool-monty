@@ -4,7 +4,7 @@
  * handle_error - reads error code ad acts in consecuence.
  * @error_code: error code
  * @file: pointer to the working file so that it can be closed
- * @stack: pointer to teh working stack so that it can be freed
+ * @stack: pointer to the working stack so that it can be freed
  */
 
 void handle_error(int error_code, FILE *file, stack_t *stack)
