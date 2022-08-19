@@ -30,9 +30,8 @@ int string_to_int(char *string)
 		}
 		if (flag == 0)
 		{
-			free(global_data->array[1]);
-			global_data->array[1] = NULL;
-			return (push_arg_value);
+			global_data->flag = 1;
+			return (0);
 		}
 	}
 	if (flag2 == 1)

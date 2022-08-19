@@ -15,6 +15,8 @@ void handle_error(int error_code, FILE *file, stack_t *stack)
 		free_stack(stack);
 	if (global_data->array)
 		free_array(global_data->array);
+	if (global_data)
+		free(global_data);
 	if (error_code == 1)
 	{
 		exit(EXIT_FAILURE);

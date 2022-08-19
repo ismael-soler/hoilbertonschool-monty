@@ -8,11 +8,12 @@
 
 int exec_file(FILE *file)
 {
-	unsigned int counter = 1;
+	unsigned int c = 1;
 	char *line = NULL, *line_aux = NULL;
 	stack_t *stack = NULL;
 
 	global_data = malloc(sizeof(data_t));
+	global_data->file = file;
 	line = malloc(1024);
 	if (line == NULL)
 		return (2);
@@ -23,18 +24,18 @@ int exec_file(FILE *file)
 		{
 			if (get_func(global_data->array[0]) == NULL)
 			{
-				fprintf(stderr, "L%u: unknown instruction %s\n", counter, global_data->array[0]);
+				fprintf(stderr, "L%u: unknown instruction %s\n", c, global_data->array[0]);
 				free_array(global_data->array);
 				return (1);
 			}
-			get_func(global_data->array[0])(&stack, counter);
+			get_func(global_data->array[0])(&stack, c);
 			if (global_data->array[1] == NULL)
 				handle_error(1, file, stack);
 			if (stack == NULL)
 				handle_error(2, file, stack);
 			free_array(global_data->array);
 		}
-		counter++;
+		c++;
 		line = malloc(1024);
 		if (line == NULL)
 			handle_error(2, file, stack);
