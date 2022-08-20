@@ -7,13 +7,18 @@
 
 void free_stack(stack_t *stack)
 {
-	stack_t *stack_aux;
 
 	if (stack == NULL)
 	{
 		free(stack);
 		return;
 	}
-	for (stack_aux = stack; stack_aux; stack_aux = stack_aux->next)
-		free(stack_aux);
+	if (stack)
+	{
+		for (stack = stack; stack; stack = stack->next)
+		{
+			if (stack)
+				free(stack);
+		}
+	}
 }

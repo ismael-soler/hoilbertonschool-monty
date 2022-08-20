@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * exec_file - searches line by line of the given file and tries to execute
+ * exec_file - searches line by line of the given file and tries to execute.
  * @file: file directory
  * Return: 0 on success
  */
@@ -39,6 +39,7 @@ int exec_file(FILE *file)
 	}
 	free(line_aux);
 	free(global_data);
-	free_stack(stack);
+	if (stack)
+		free_stack(stack);
 	return (0);
 }
