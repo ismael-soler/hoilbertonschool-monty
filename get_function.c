@@ -12,11 +12,13 @@ void (*get_func(char *command))(stack_t **stack, unsigned int line_number)
 		{"push", _push},
 		{"pall", _pall},
 		{"pint", _pint},
-		{"pop", _pop}
+		{"pop", _pop},
+		{"nop", _nop},
+		{"swap", _swap}
 	};
 	int i;
 
-	for (i = 0; i < 4; i++)
+	for (i = 0; i < 6; i++)
 		if (strcmp(array[i].opcode, command) == 0)
 			return (array[i].f);
 	return (NULL);
