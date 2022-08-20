@@ -11,11 +11,10 @@ void _pop(stack_t **stack, unsigned int line_number)
 	(void)line_number;
 	stack_t *aux1, *aux2;
 
-	printf("entramos a pop\n");
 	if (stack == NULL || *stack == NULL)
 	{
-		printf("dentro del stack null \n");
-		return;
+		fprintf(stderr, "L%u: can't pop an empty stack\n", line_number);
+		handle_error(1, global_data->file, *stack);
 	}
 
 	aux1 = *stack;
@@ -25,5 +24,4 @@ void _pop(stack_t **stack, unsigned int line_number)
 	free(aux1);
 	if (aux2)
 		aux2->prev = NULL;
-	printf("llegamo aca\n");
 }
