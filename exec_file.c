@@ -17,7 +17,7 @@ int exec_file(FILE *file)
 	line = malloc(1024);
 	if (line == NULL)
 		return (2);
-	for (line_aux = line, line = fgets(line, 1024, file); line;)
+	for (line_aux = line, line = fgets(line, 1024, file); line; c++)
 	{
 		global_data->array = buff_to_array(line, " \t\n");
 		if (global_data->array[0])
@@ -37,7 +37,6 @@ int exec_file(FILE *file)
 		}
 		if (global_data->array)
 			free_array(global_data->array);
-		c++;
 		line = malloc(1024);
 		if (line == NULL)
 			handle_error(2, file, stack);
