@@ -28,8 +28,8 @@ int exec_file(FILE *file)
 				handle_error(1, file, stack);
 			}
 			get_func(global_data->array[0])(&stack, c);
-			free_array(global_data->array);
 		}
+		free_array(global_data->array);
 		c++;
 		line = malloc(1024);
 		if (line == NULL)
