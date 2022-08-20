@@ -110,7 +110,7 @@ void _div(stack_t **stack, unsigned int line_number)
 	}
 	if (aux_stack->n == 0)
 	{
-		fprintf(stderr, "L%u; division by zero\n", line_number);
+		fprintf(stderr, "L%u: division by zero\n", line_number);
 		handle_error(1, global_data->file, *stack);
 	}
 
