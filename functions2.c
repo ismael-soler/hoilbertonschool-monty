@@ -39,7 +39,7 @@ void _swap(stack_t **stack, unsigned int line_number)
 
 	if (aux_stack == NULL || aux_stack->next == NULL)
 	{
-		fprintf(stderr, "L%u, can't swap, stack too short\n", line_number);
+		fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
 		handle_error(1, global_data->file, *stack);
 	}
 
