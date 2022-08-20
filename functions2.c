@@ -87,7 +87,7 @@ void _sub(stack_t **stack, unsigned int line_number)
 		handle_error(1, global_data->file, *stack);
 	}
 
-	sum = aux_stack->n - aux_stack->next->n;
+	sum = aux_stack->next->n - aux_stack->n;
 	aux_stack->next->n = sum;
 	_pop(&(*stack), line_number);
 }
@@ -105,7 +105,7 @@ void _div(stack_t **stack, unsigned int line_number)
 
 	if (aux_stack == NULL || aux_stack->next == NULL)
 	{
-		fprintf(stderr, "L%u: can't add, stack too short\n", line_number);
+		fprintf(stderr, "L%u: can't div, stack too short\n", line_number);
 		handle_error(1, global_data->file, *stack);
 	}
 	if (aux_stack->n == 0)
