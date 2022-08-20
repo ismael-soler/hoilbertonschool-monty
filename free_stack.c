@@ -18,7 +18,9 @@ void free_stack(stack_t *stack)
 		for (stack = stack; stack; stack = stack->next)
 		{
 			if (stack)
+			{
 				free(stack);
+			}
 		}
 	}
 }

@@ -22,14 +22,21 @@ int exec_file(FILE *file)
 		global_data->array = buff_to_array(line, " \t\n");
 		if (global_data->array[0])
 		{
-			if (get_func(global_data->array[0]) == NULL)
+			if (global_data->array[0][0] == 35)
+			{
+				free_array(global_data->array);
+				global_data->array = NULL;
+			}
+			else if (get_func(global_data->array[0]) == NULL)
 			{
 				fprintf(stderr, "L%u: unknown instruction %s\n", c, global_data->array[0]);
 				handle_error(1, file, stack);
 			}
-			get_func(global_data->array[0])(&stack, c);
+			else
+				get_func(global_data->array[0])(&stack, c);
 		}
-		free_array(global_data->array);
+		if (global_data->array)
+			free_array(global_data->array);
 		c++;
 		line = malloc(1024);
 		if (line == NULL)
