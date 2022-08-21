@@ -1,5 +1,7 @@
 #include "monty.h"
 
+data_t *global_data = NULL;
+
 /**
  * exec_file - searches line by line of the given file and tries to execute.
  * @file: file directory

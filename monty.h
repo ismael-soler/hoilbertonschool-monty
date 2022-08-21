@@ -24,7 +24,7 @@ typedef struct data_s
 	char **array;
 } data_t;
 
-data_t *global_data;
+extern data_t *global_data;
 /**
  * struct stack_s - doubly linked list representation of a stack or queue)
  * @n: integer
